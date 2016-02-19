@@ -2,19 +2,21 @@
   General
 ======================== */
 body {
+  color: #404040;
   font-family: SegoeUIRegular, sans-serif;
   font-size: 14px;
+  line-height: 20px;
 }
 
 #sidebar {
   position: absolute;
+  z-index: 0;
   top: 0;
   bottom: 0;
   box-sizing: border-box;
   width: 330px;
   padding: 30px;
   background-color: #bcbcbc;
-  z-index: 0;
 }
 
 .sidebar-section {
@@ -35,12 +37,31 @@ body {
   Matrix
 ======================== */
 .matrix {
+  position: relative;
   margin-right: 30px;
   margin-bottom: 30px;
-  border-spacing: 10px;
+  border-spacing: 10px 5px;
+  border: 2px solid #404040;
   border-collapse: separate;
-  border-right: 2px solid #404040;
-  border-left: 2px solid #404040;
+}
+
+.matrix:before,
+.matrix:after {
+  position: absolute;
+  right: 10px;
+  left: 10px;
+  width: auto;
+  height: 2px;
+  content: '';
+  background-color: #fff;
+}
+
+.matrix:before {
+  top: -2px;
+}
+
+.matrix:after {
+  bottom: -2px;
 }
 
 .matrix input {
@@ -57,10 +78,10 @@ body {
   Buttons
 ======================== */
 .btn {
+  overflow: visible; /* для IE */
   cursor: pointer;
   border-radius: 2px;
   font-family: SegoeUIRegular, sans-serif;
-  overflow: visible; /* для IE */
 }
 
 .btn:disabled,
@@ -136,10 +157,10 @@ input[type='text']:focus {
   background-color: #e8e8e8;
 }
 
-.btn-form:active {
+.btn-form:hover:active {
   border-color: #ccc;
   border-top-color: #a6a6a6;
-  background-color: #d9d9d9;
+  background: #d9d9d9;
 }
 
 .btn-arrow {
@@ -148,18 +169,19 @@ input[type='text']:focus {
   border-bottom-right-radius: 0;
 }
 
- .arrow-2,
- .arrow-1 {
+.arrow-2,
+.arrow-1 {
   position: absolute;
   -webkit-transform: rotate(45deg);
      -moz-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
        -o-transform: rotate(45deg);
           transform: rotate(45deg);
-  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476)"; /* IE8 */
+
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Matrix(SizingMethod=\'auto expand\', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476)'; /* IE8 */
 }
 
- .arrow-2 {
+.arrow-2 {
   top: 14.5%;
   left: 93%;
   width: 22.7px;
@@ -185,7 +207,7 @@ input[type='text']:focus {
   background-color: #35840e;
 }
 
- .arrow-1 {
+.arrow-1 {
   z-index: -1;
   top: 12.3%;
   left: 92.7%;
@@ -198,12 +220,12 @@ input[type='text']:focus {
   background-color: #5e9450;
 }
 
-.btn-positive.btn-arrow:hover .arrow-1  {
+.btn-positive.btn-arrow:hover .arrow-1 {
   background: linear-gradient(to bottom right, #527f4d, #426c36);
   background-color: #527f4d;
 }
 
-.btn-positive.btn-arrow:active .arrow-1  {
+.btn-positive.btn-arrow:active .arrow-1 {
   background: linear-gradient(to bottom right, #3d5333, #51744c);
   background-color: #3d5333;
 }
