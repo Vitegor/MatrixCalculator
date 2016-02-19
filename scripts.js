@@ -1,12 +1,12 @@
 $(function() {
 
-  const MATRIX_A = '#matrix-a';
-  const MATRIX_B = '#matrix-b';
-  const MATRIX_C = '#matrix-c';
+  var MATRIX_A = '#matrix-a';
+  var MATRIX_B = '#matrix-b';
+  var MATRIX_C = '#matrix-c';
 
-  const MAX_MATRIX_SIZE = 10;
-  const MAX_MATRIX_ERROR_MSG = 'Максимальный размер матрицы: ' + MAX_MATRIX_SIZE + ' x ' + MAX_MATRIX_SIZE;
-  const MIN_MATRIX_ERROR_MSG = 'Минимальный размер матрицы: 1 х 1';
+  var MAX_MATRIX_SIZE = 10;
+  var MAX_MATRIX_ERROR_MSG = 'Максимальный размер матрицы: ' + MAX_MATRIX_SIZE + ' x ' + MAX_MATRIX_SIZE;
+  var MIN_MATRIX_ERROR_MSG = 'Минимальный размер матрицы: 1 х 1';
 
   var matrixData = {};
 
@@ -143,7 +143,7 @@ $(function() {
   }
 
   function swap() {
-
+    //TODO
   }
 
   function setPlaceholders(mId) {
