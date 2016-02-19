@@ -60,6 +60,7 @@ body {
   cursor: pointer;
   border-radius: 2px;
   font-family: SegoeUIRegular, sans-serif;
+  overflow: visible; /* для IE */
 }
 
 .btn:disabled,
@@ -155,6 +156,7 @@ input[type='text']:focus {
       -ms-transform: rotate(45deg);
        -o-transform: rotate(45deg);
           transform: rotate(45deg);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476)"; /* IE8 */
 }
 
  .arrow-2 {
@@ -193,17 +195,17 @@ input[type='text']:focus {
 
 .btn-positive .arrow-1 {
   background: linear-gradient(to bottom right, #5e9450, #457339);
-  background-color: #419d14;
+  background-color: #5e9450;
 }
 
 .btn-positive.btn-arrow:hover .arrow-1  {
   background: linear-gradient(to bottom right, #527f4d, #426c36);
-  background-color: #35850e;
+  background-color: #527f4d;
 }
 
 .btn-positive.btn-arrow:active .arrow-1  {
   background: linear-gradient(to bottom right, #3d5333, #51744c);
-  background-color: #35840e;
+  background-color: #3d5333;
 }
 
 
