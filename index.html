@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Калькулятор</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside id="sidebar">
+    <div class="sidebar-section">
+      <button class="btn btn-positive btn-arrow" id="multiply">
+        Умножить матрицы
+      </button>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-line">
+        <button class="btn btn-form" id="clear">
+          <span class="icon icon-return"></span>
+            Очистить матрицы
+        </button>
+      </div>
+
+      <div class="sidebar-line">
+        <button class="btn btn-form">
+          <i class="icon icon-swap"></i>
+            Поменять матрицы местами
+        </button>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-line">
+        <input id="select-matrix-a" type="radio" name="matrix" checked>
+        Матрица А
+        <input id="select-matrix-b" type="radio" name="matrix">
+        Матрица Б
+      </div>
+
+      <div class="sidebar-line">
+        <button class="btn btn-form" id="add-row">
+          <i class="icon icon-plus"></i>
+            Добавить
+        </button>
+        <button class="btn btn-form" id="delete-row">
+          <i class="icon icon-minus"></i>
+            Удалить
+        </button>
+        строку
+      </div>
+
+      <div class="sidebar-line">
+        <button class="btn btn-form" id="add-column">
+          <i class="icon icon-plus"></i>
+            Добавить
+        </button>
+        <button class="btn btn-form" id="delete-column">
+          <i class="icon icon-minus"></i>
+            Удалить
+        </button>
+        столбец
+      </div>
+    </div>
+  </aside>
+
+  <div id="content">
+    <table class="matrix" id="matrix-c">
+      <tr>
+        <td><input type="text" placeholder="c1,1" disabled></td>
+        <td><input type="text" placeholder="c1,2" disabled></td>
+        <td><input type="text" placeholder="c1,3" disabled></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="c2,1" disabled></td>
+        <td><input type="text" placeholder="c2,2" disabled></td>
+        <td><input type="text" placeholder="c2,3" disabled></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="c3,1" disabled></td>
+        <td><input type="text" placeholder="c3,2" disabled></td>
+        <td><input type="text" placeholder="c3,3" disabled></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="c3,1" disabled></td>
+        <td><input type="text" placeholder="c3,2" disabled></td>
+        <td><input type="text" placeholder="c3,3" disabled></td>
+      </tr>
+    </table>
+
+    <table class="matrix" id="matrix-a">
+      <tr>
+        <td><input type="text" placeholder="b1,1" value="1"></td>
+        <td><input type="text" placeholder="b1,2" value="1"></td>
+        <td><input type="text" placeholder="b1,3" value="1"></td>
+        <td><input type="text" placeholder="b1,3" value="1"></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="b2,1" value="2"></td>
+        <td><input type="text" placeholder="b2,2" value="2"></td>
+        <td><input type="text" placeholder="b2,3" value="2"></td>
+        <td><input type="text" placeholder="b2,3" value="2"></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="b3,1" value="3"></td>
+        <td><input type="text" placeholder="b3,2" value="3"></td>
+        <td><input type="text" placeholder="b3,3" value="3"></td>
+        <td><input type="text" placeholder="b3,3" value="3"></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="b3,1" value="4"></td>
+        <td><input type="text" placeholder="b3,2" value="4"></td>
+        <td><input type="text" placeholder="b3,3" value="4"></td>
+        <td><input type="text" placeholder="b3,3" value="4"></td>
+      </tr>
+    </table>
+
+    <table class="matrix" id="matrix-b">
+      <tr>
+        <td><input type="text" placeholder="a1,1" value="1"></td>
+        <td><input type="text" placeholder="a1,2" value="1"></td>
+        <td><input type="text" placeholder="a1,3" value="1"></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="a2,1" value="2"></td>
+        <td><input type="text" placeholder="a2,2" value="2"></td>
+        <td><input type="text" placeholder="a2,3" value="2"></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="a1,1" value="3"></td>
+        <td><input type="text" placeholder="a1,2" value="3"></td>
+        <td><input type="text" placeholder="a1,3" value="3"></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="a1,1" value="4"></td>
+        <td><input type="text" placeholder="a1,2" value="4"></td>
+        <td><input type="text" placeholder="a1,3" value="4"></td>
+      </tr>
+    </table>
+    <!-- <table class="matrix" id="matrix-c">
+      <tr>
+        <td><input type="text" placeholder="c1,1" disabled></td>
+        <td><input type="text" placeholder="c1,2" disabled></td>
+        <td><input type="text" placeholder="c1,3" disabled></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="c2,1" disabled></td>
+        <td><input type="text" placeholder="c2,2" disabled></td>
+        <td><input type="text" placeholder="c2,3" disabled></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="c3,1" disabled></td>
+        <td><input type="text" placeholder="c3,2" disabled></td>
+        <td><input type="text" placeholder="c3,3" disabled></td>
+      </tr>
+    </table>
+
+    <table class="matrix" id="matrix-a">
+      <tr>
+        <td><input type="text" placeholder="b1,1"></td>
+        <td><input type="text" placeholder="b1,2"></td>
+        <td><input type="text" placeholder="b1,3"></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="b2,1"></td>
+        <td><input type="text" placeholder="b2,2"></td>
+        <td><input type="text" placeholder="b2,3"></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="b3,1"></td>
+        <td><input type="text" placeholder="b3,2"></td>
+        <td><input type="text" placeholder="b3,3"></td>
+      </tr>
+    </table>
+
+    <table class="matrix" id="matrix-b">
+      <tr>
+        <td><input type="text" placeholder="a1,1"></td>
+        <td><input type="text" placeholder="a1,2"></td>
+        <td><input type="text" placeholder="a1,3"></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="a2,1"></td>
+        <td><input type="text" placeholder="a2,2"></td>
+        <td><input type="text" placeholder="a2,3"></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="a1,1"></td>
+        <td><input type="text" placeholder="a1,2"></td>
+        <td><input type="text" placeholder="a1,3"></td>
+      </tr>
+    </table> -->
+  </div>
+  
+  <script type="text/javascript" src="libs/jquery-2.2.0.min.js"></script>
+  <script type="text/javascript" src="scripts.js"></script>
+</body>
+</html>

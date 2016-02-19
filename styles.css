@@ -1,0 +1,195 @@
+/* ========================
+  General
+======================== */
+body {
+  font-family: SegoeUIRegular, sans-serif;
+  font-size: 14px;
+}
+
+#sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  width: 330px;
+  padding: 30px;
+  background-color: #bcbcbc;
+}
+
+.sidebar-section {
+  margin-bottom: 55px;
+}
+
+.sidebar-line {
+  margin-bottom: 10px;
+}
+
+#content {
+  margin-left: 330px;
+  padding: 30px;
+}
+
+
+/* ========================
+  Matrix
+======================== */
+.matrix {
+  margin-right: 30px;
+  margin-bottom: 30px;
+  border-spacing: 10px;
+  border-collapse: separate;
+  border-right: 2px solid #404040;
+  border-left: 2px solid #404040;
+}
+
+.matrix input {
+  width: 40px;
+  height: 40px;
+}
+
+#matrix-c {
+  float: left;
+}
+
+
+/* ========================
+  Buttons
+======================== */
+.btn {
+  cursor: pointer;
+  border-radius: 2px;
+  font-family: SegoeUIRegular, sans-serif;
+}
+
+.btn:disabled {
+  color: #808080;
+  border-color: #d9d9d9;
+  background: #f2f2f2;
+}
+
+.btn:focus,
+input[type='text']:focus {
+  border-color: #fff;
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: #5199db;
+}
+
+.btn:hover {
+  outline: none;
+}
+
+.btn:active {
+  outline: none;
+}
+
+.btn-positive {
+  height: 34px;
+  padding: 0 19px;
+  color: #fff;
+  border: 1px solid #5e9450;
+  border-bottom-color: #457339;
+  border-radius: 3px;
+  background: linear-gradient(to bottom, #4ba91d, #38920c);
+  font-size: 14px;
+}
+
+.btn-positive:hover {
+  border-color: #527f4d;
+  border-bottom-color: #426c36;
+  background: linear-gradient(to bottom, #3b8d13, #317e0b);
+}
+
+.btn-positive:active {
+  border-color: #51744c;
+  border-top-color: #3d5333;
+  background: linear-gradient(to bottom, #29660b, #35840e);
+}
+
+.btn-form {
+  height: 28px;
+  margin-right: 10px;
+  padding: 0 6px;
+  color: #404040;
+  border: 1px solid #d9d9d9;
+  border-bottom-color: #b2b2b2;
+  background: linear-gradient(to bottom, #fefefe, #ececec);
+}
+
+.btn-form:focus {
+  background: linear-gradient(to bottom, #fdfdfd, #ececec);
+}
+
+.btn-form:hover {
+  border-color: #d9d9d9;
+  border-bottom-color: #b2b2b2;
+  background: linear-gradient(to bottom, #f2f2f2, #dfdfdf);
+}
+
+.btn-form:active {
+  border-color: #ccc;
+  border-top-color: #a6a6a6;
+  background-color: #d9d9d9;
+}
+
+
+/* ========================
+  Inputs
+======================== */
+input[type='text'] {
+  padding-left: 5px;
+  color: #404040;
+  border: 1px solid #d9d9d9;
+  border-top-color: #b2b2b2;
+}
+
+
+input[type='text']:disabled {
+  color: #808080;
+  border-top-color: #d9d9d9;
+  background-color: #f2f2f2;
+}
+
+
+/* ========================
+  Icons
+======================== */
+.icon:before {
+  font-family: 'Kontur-Iconic-eco';
+}
+
+.icon-return:before {
+  content: '\E012';
+}
+.icon-swap:before {
+  content: '\E01F';
+}
+.icon-plus:before {
+  content: '\E00D';
+}
+.icon-minus:before {
+  content: '\E01E';
+}
+
+
+/* ========================
+  Fonts
+======================== */
+@font-face {
+  font-family: 'SegoeUIRegular';
+  font-weight: normal;
+  font-style: normal;
+
+  src: url('fonts/SegoeUIRegular/SegoeUIRegular.eot');
+  src: url('fonts/SegoeUIRegular/SegoeUIRegular.eot?#iefix')format('embedded-opentype'),
+  url('fonts/SegoeUIRegular/SegoeUIRegular.woff') format('woff'),
+  url('fonts/SegoeUIRegular/SegoeUIRegular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Kontur-Iconic-eco';
+  font-weight: normal;
+  font-style: normal;
+
+  src: url('fonts/Kontur-Iconic-eco/Kontur-Iconic-eco.ttf') format('truetype');
+}
