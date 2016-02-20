@@ -67,16 +67,16 @@ $(function() {
     else alert(MIN_MATRIX_ERROR_MSG);
   });
 
-  $('.matrix input').focusin(function() {
+  $('.matrix').on('focusin', 'input', function() {
     $(SIDEBAR).addClass('sidebar-on-edit');
     $(ERRORS).hide();
   });
 
-  $('.matrix input').focusout(function() {
+  $('.matrix').on('focusout', 'input', function() {
     $(SIDEBAR).removeClass('sidebar-on-edit');
   });
 
-  $('.matrix input').change(function() {
+  $('.matrix').on('change', 'input', function() {
     $(SIDEBAR).removeClass('sidebar-on-error');
     $(ERRORS).html('').hide();
     $('#multiply').prop( 'disabled', true);
