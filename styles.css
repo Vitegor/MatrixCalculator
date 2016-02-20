@@ -19,12 +19,26 @@ body {
   background-color: #bcbcbc;
 }
 
+#sidebar.sidebar-on-edit,
+#sidebar.sidebar-on-edit.sidebar-on-error {
+  background-color: #5199db;
+}
+
+#sidebar.sidebar-on-error {
+  background-color: #f6c1c0;
+}
+
 .sidebar-section {
   margin-bottom: 55px;
 }
 
 .sidebar-line {
   margin-bottom: 10px;
+}
+
+#errors {
+  display: none;
+  color: #da0902;
 }
 
 #content {
@@ -38,9 +52,6 @@ body {
 ======================== */
 .matrix {
   position: relative;
-  margin-right: 30px;
-  margin-bottom: 30px;
-  border-spacing: 10px 5px;
   border: 2px solid #404040;
   border-collapse: separate;
 }
@@ -51,7 +62,7 @@ body {
   right: 10px;
   left: 10px;
   width: auto;
-  height: 2px;
+  height: 4px;
   content: '';
   background-color: #fff;
 }
@@ -64,13 +75,60 @@ body {
   bottom: -2px;
 }
 
+.matrix tbody {
+  display: block;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
 .matrix input {
   width: 40px;
   height: 40px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#matrix-c,
+#matrix-a {
+  float: left;
+}
+
+#matrix-a {
+  margin-right: 20px;
+}
+
+#matrix-b {
+  margin-bottom: 20px;
 }
 
 #matrix-c {
-  float: left;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+#wrapper-matrix-a,
+#wrapper-matrix-b {
+  position: relative;
+  display: table;
+}
+
+#wrapper-matrix-a {
+  margin-bottom: 30px;
+}
+
+#title-matrix-a,
+#title-matrix-b {
+  font-size: 20px;
+}
+
+#title-matrix-a {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#title-matrix-b {
+  display: table;
+  margin: 0 auto;
 }
 
 
@@ -89,6 +147,7 @@ body {
   color: #808080;
   border-color: #d9d9d9;
   background: #f2f2f2;
+  cursor: default;
 }
 
 .btn-form:focus,
@@ -99,11 +158,8 @@ input[type='text']:focus {
   outline-color: #5199db;
 }
 
+.btn:active,
 .btn:hover {
-  outline: none;
-}
-
-.btn:active {
   outline: none;
 }
 
@@ -169,27 +225,50 @@ input[type='text']:focus {
   border-bottom-right-radius: 0;
 }
 
-.arrow-2,
+.btn-positive.btn-arrow:focus {
+  outline: none;
+}
+
 .arrow-1 {
   position: absolute;
-  -webkit-transform: rotate(45deg);
-     -moz-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-       -o-transform: rotate(45deg);
-          transform: rotate(45deg);
-
-  -ms-filter: 'progid:DXImageTransform.Microsoft.Matrix(SizingMethod=\'auto expand\', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476)'; /* IE8 */
+  z-index: -1;
+  top: 6px;
+  right: -10px;
+  width: 20.1px;
+  height: 20.1px;
+  -webkit-transform: rotate(53.6deg) skew(20deg);
+     -moz-transform: rotate(53.6deg) skew(20deg);
+      -ms-transform: rotate(53.6deg) skew(20deg);
+       -o-transform: rotate(53.6deg) skew(20deg);
+          transform: rotate(53.6deg) skew(20deg);
 }
 
 .arrow-2 {
-  top: 14.5%;
-  left: 93%;
-  width: 22.7px;
-  height: 22.7px;
+  position: absolute;
+  top: 6.4px;
+  right: -9px;
+  width: 19px;
+  height: 19px;
+  -webkit-transform: rotate(53.6deg) skew(20deg);
+     -moz-transform: rotate(53.6deg) skew(20deg);
+      -ms-transform: rotate(53.6deg) skew(20deg);
+       -o-transform: rotate(53.6deg) skew(20deg);
+          transform: rotate(53.6deg) skew(20deg);
 }
 
-.btn-positive.btn-arrow:focus {
-  outline: none;
+.btn-positive .arrow-1 {
+  background: linear-gradient(to bottom right, #5e9450, #457339);
+  background-color: #5e9450;
+}
+
+.btn-positive.btn-arrow:hover .arrow-1 {
+  background: linear-gradient(to bottom right, #527f4d, #426c36);
+  background-color: #527f4d;
+}
+
+.btn-positive.btn-arrow:active .arrow-1 {
+  background: linear-gradient(to bottom right, #3d5333, #51744c);
+  background-color: #3d5333;
 }
 
 .btn-positive .arrow-2 {
@@ -207,27 +286,14 @@ input[type='text']:focus {
   background-color: #35840e;
 }
 
-.arrow-1 {
-  z-index: -1;
-  top: 12.3%;
-  left: 92.7%;
-  width: 24.1px;
-  height: 24.1px;
+.btn:disabled .arrow-1,
+.btn:disabled:hover .arrow-1{
+  background: #d9d9d9;
 }
 
-.btn-positive .arrow-1 {
-  background: linear-gradient(to bottom right, #5e9450, #457339);
-  background-color: #5e9450;
-}
-
-.btn-positive.btn-arrow:hover .arrow-1 {
-  background: linear-gradient(to bottom right, #527f4d, #426c36);
-  background-color: #527f4d;
-}
-
-.btn-positive.btn-arrow:active .arrow-1 {
-  background: linear-gradient(to bottom right, #3d5333, #51744c);
-  background-color: #3d5333;
+.btn:disabled .arrow-2,
+.btn:disabled:hover .arrow-2 {
+  background: #f2f2f2;
 }
 
 

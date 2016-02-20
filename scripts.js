@@ -3,10 +3,23 @@ $(function() {
   var MATRIX_A = '#matrix-a';
   var MATRIX_B = '#matrix-b';
   var MATRIX_C = '#matrix-c';
+  var SIDEBAR = '#sidebar';
+  var ERRORS = '#errors';
 
   var MAX_MATRIX_SIZE = 10;
-  var MAX_MATRIX_ERROR_MSG = 'Максимальный размер матрицы: ' + MAX_MATRIX_SIZE + ' x ' + MAX_MATRIX_SIZE;
-  var MIN_MATRIX_ERROR_MSG = 'Минимальный размер матрицы: 1 х 1';
+  var MIN_MATRIX_SIZE = 2;
+  var MIN_MATRIX_VALUE = 0;
+  var MAX_MATRIX_VALUE = 10;
+
+  var MAX_MATRIX_ERROR_MSG = 
+    'Максимальный размер матрицы: ' + MAX_MATRIX_SIZE + ' x ' + MAX_MATRIX_SIZE;
+
+  var MIN_MATRIX_ERROR_MSG = 
+    'Минимальный размер матрицы: ' + MIN_MATRIX_SIZE + ' x ' + MIN_MATRIX_SIZE;
+
+  var INVALID_VALUE_MSG = 
+    'Значение в ячейках матрицы должно быть числом в диапазоне от ' +
+    MIN_MATRIX_VALUE + ' до ' + MAX_MATRIX_VALUE;
 
   var matrixData = {};
 
@@ -32,27 +45,52 @@ $(function() {
       getMatrixPostfix(mId) == 'b' ? addColumn(MATRIX_C) : addRow(MATRIX_B);
     }
     else alert(MAX_MATRIX_ERROR_MSG);
-  })
+  });
 
   $('#delete-row').click(function() {
     var mId = getSelectedMatrixId();
 
-    if ($(mId).find('tr').length > 1) {
+    if ($(mId).find('tr').length > MIN_MATRIX_SIZE) {
       deleteRow(mId);
       getMatrixPostfix(mId) == 'a' ? deleteRow(MATRIX_C) : deleteColumn(MATRIX_A);
     }
     else alert(MIN_MATRIX_ERROR_MSG);
-  })
+  });
 
   $('#delete-column').click(function() {
     var mId = getSelectedMatrixId();
 
-    if ($(mId).find('tr:first td').length > 1) {
+    if ($(mId).find('tr:first td').length > MIN_MATRIX_SIZE) {
       deleteColumn(mId);
       getMatrixPostfix(mId) == 'b' ? deleteColumn(MATRIX_C) : deleteRow(MATRIX_B);
     }
     else alert(MIN_MATRIX_ERROR_MSG);
-  })
+  });
+
+  $('.matrix input').focusin(function() {
+    $(SIDEBAR).addClass('sidebar-on-edit');
+    $(ERRORS).hide();
+  });
+
+  $('.matrix input').focusout(function() {
+    $(SIDEBAR).removeClass('sidebar-on-edit');
+  });
+
+  $('.matrix input').change(function() {
+    $(SIDEBAR).removeClass('sidebar-on-error');
+    $(ERRORS).html('').hide();
+    $('#multiply').prop( 'disabled', true);
+
+    if (matrixIsValid(MATRIX_A) && matrixIsValid(MATRIX_B)) {
+      $(SIDEBAR).removeClass('sidebar-on-error');
+      $(ERRORS).html('').hide();
+      $('#multiply').prop( 'disabled', false);
+    }
+    else {
+      $(SIDEBAR).addClass('sidebar-on-error');
+      $(ERRORS).text(INVALID_VALUE_MSG).show();
+    }
+  });
 
   function multiply() {
     initMatrixData();
@@ -63,7 +101,7 @@ $(function() {
       $(this).find('td input').each(function(col) {
         this.value = calculateCell(row, col, colsCount);
       });
-    })
+    });
 
     function calculateCell(row, col, colsCount) {
       var result = 0;
@@ -140,6 +178,23 @@ $(function() {
     $(mId).find('tr').each(function() {
       $(this).find('td:last').remove();
     });
+  }
+
+  function matrixIsValid(mId) {
+    var result = true;
+    $(mId + ' tr').each(function() {
+      $(this).find('td input').each(function() {
+        if (!valueIsValid(this.value)) result = false;
+      });
+    });
+    return result;
+  }
+
+  function valueIsValid(value) {
+    if (value >= MIN_MATRIX_VALUE && value <= MAX_MATRIX_VALUE) {
+      return true;
+    }
+    return false;
   }
 
   function swap() {
