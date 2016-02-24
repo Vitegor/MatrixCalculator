@@ -82,6 +82,7 @@ body {
 }
 
 .matrix input {
+  box-sizing: border-box;
   width: 40px;
   height: 40px;
   margin-top: 10px;
@@ -308,6 +309,7 @@ input[type='text']:focus {
 ======================== */
 input[type='text'] {
   padding-left: 5px;
+  padding-top: 15px;
   color: #404040;
   border: 1px solid #d9d9d9;
   border-top-color: #b2b2b2;
