@@ -101,14 +101,6 @@ body {
   float: left;
 }
 
-#matrix-a {
-  margin-right: 20px;
-}
-
-#matrix-b {
-  margin-bottom: 20px;
-}
-
 #matrix-c {
   margin-right: 30px;
   margin-bottom: 30px;
@@ -136,11 +128,13 @@ body {
 #title-matrix-a {
   display: table-cell;
   vertical-align: middle;
+  padding-left: 20px;
 }
 
 #title-matrix-b {
   display: table;
   margin: 0 auto;
+  padding-top: 20px;
 }
 
 

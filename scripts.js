@@ -73,16 +73,17 @@ $(function() {
     validateMatrix();
   });
 
-  $('.matrix').on('focusin', 'input', function() {
+  $('#content').on('focusin', 'input', function() {
     $(SIDEBAR).addClass('sidebar-on-edit');
     $(ERRORS).hide();
   });
 
-  $('.matrix').on('focusout', 'input', function() {
+  $('#content').on('focusout', 'input', function() {
     $(SIDEBAR).removeClass('sidebar-on-edit');
+    validateMatrix();
   });
 
-  $('.matrix').on('change', 'input', function() {
+  $('#content').on('change', 'input', function() {
     $(this).attr('value', $(this).val());
     $(SIDEBAR).removeClass('sidebar-on-error');
     $(ERRORS).html('').hide();
@@ -208,15 +209,13 @@ $(function() {
   }
 
   function swap() {
-    var htmlMatrixA = $('#wrapper-matrix-a').html();
-    var htmlMatrixB = $('#wrapper-matrix-b').html();
-
+    var htmlMatrixA = $('#inner-matrix-a').html();
+    var htmlMatrixB = $('#inner-matrix-b').html();
     var titleMatrixA = $('#title-matrix-a').text();
     var titleMatrixB = $('#title-matrix-b').text();
 
-    $('#wrapper-matrix-a').html(htmlMatrixB);
-    $('#wrapper-matrix-b').html(htmlMatrixA);
-
+    $('#inner-matrix-a').html('').html(htmlMatrixB);
+    $('#inner-matrix-b').html('').html(htmlMatrixA);
     $('#title-matrix-a').text(titleMatrixB);
     $('#title-matrix-b').text(titleMatrixA);
   }
