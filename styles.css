@@ -144,10 +144,10 @@ body {
 
 .btn:disabled,
 .btn:hover:disabled {
+  cursor: default;
   color: #808080;
   border-color: #d9d9d9;
   background: #f2f2f2;
-  cursor: default;
 }
 
 .btn-form:focus,
@@ -229,7 +229,7 @@ input[type='text']:focus {
   outline: none;
 }
 
-.arrow-1 {
+.triangle-lower {
   position: absolute;
   z-index: -1;
   top: 6px;
@@ -243,7 +243,7 @@ input[type='text']:focus {
           transform: rotate(53.6deg) skew(20deg);
 }
 
-.arrow-2 {
+.triangle-upper {
   position: absolute;
   top: 6.4px;
   right: -9px;
@@ -256,43 +256,43 @@ input[type='text']:focus {
           transform: rotate(53.6deg) skew(20deg);
 }
 
-.btn-positive .arrow-1 {
+.btn-positive .triangle-lower {
   background: linear-gradient(to bottom right, #5e9450, #457339);
   background-color: #5e9450;
 }
 
-.btn-positive.btn-arrow:hover .arrow-1 {
+.btn-positive.btn-arrow:hover .triangle-lower {
   background: linear-gradient(to bottom right, #527f4d, #426c36);
   background-color: #527f4d;
 }
 
-.btn-positive.btn-arrow:active .arrow-1 {
+.btn-positive.btn-arrow:active .triangle-lower {
   background: linear-gradient(to bottom right, #3d5333, #51744c);
   background-color: #3d5333;
 }
 
-.btn-positive .arrow-2 {
+.btn-positive .triangle-upper {
   background: linear-gradient(to bottom right, #4ba91d, #38920c);
   background-color: #419d14;
 }
 
-.btn-positive.btn-arrow:hover .arrow-2 {
+.btn-positive.btn-arrow:hover .triangle-upper {
   background: linear-gradient(to bottom right, #3b8d13, #317e0b);
   background-color: #35850e;
 }
 
-.btn-positive.btn-arrow:active .arrow-2 {
+.btn-positive.btn-arrow:active .triangle-upper {
   background: linear-gradient(to bottom right, #29660b, #35840e);
   background-color: #35840e;
 }
 
-.btn:disabled .arrow-1,
-.btn:disabled:hover .arrow-1{
+.btn:disabled .triangle-lower,
+.btn:disabled:hover .triangle-lower {
   background: #d9d9d9;
 }
 
-.btn:disabled .arrow-2,
-.btn:disabled:hover .arrow-2 {
+.btn:disabled .triangle-upper,
+.btn:disabled:hover .triangle-upper {
   background: #f2f2f2;
 }
 
