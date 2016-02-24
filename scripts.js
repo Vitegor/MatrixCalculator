@@ -1,5 +1,8 @@
 $(function() {
 
+  /* ========================
+    Global variables & constants
+  ======================== */
   var MATRIX_A = '#matrix-a';
   var MATRIX_B = '#matrix-b';
   var MATRIX_C = '#matrix-c';
@@ -23,9 +26,16 @@ $(function() {
 
   var matrixData = {};
 
+
+  /* ========================
+    Events handlers
+  ======================== */
   $('#multiply').click(function() { multiply(); });
 
-  $('#clear').click(function() { clear(); });
+  $('#clear').click(function() {
+    clear();
+    validateMatrix();
+  });
 
   $('#swap').click(function() { swap(); });
 
@@ -91,6 +101,10 @@ $(function() {
     validateMatrix();
   });
 
+
+  /* ========================
+    Main methods
+  ======================== */
   function multiply() {
     initMatrixData();
 
@@ -102,19 +116,11 @@ $(function() {
       });
     });
 
-    function calculateCell(row, col, colsCount) {
-      var result = 0;
-      for(c = 0; c < colsCount; c++) {
-        result += matrixData.A[row][c] * matrixData.B[c][col];
+    function initMatrixData() {
+      matrixData = {
+        A: getMatrixData(MATRIX_A),
+        B: getMatrixData(MATRIX_B),
       }
-      return result;
-    }
-  }
-
-  function initMatrixData() {
-    matrixData = {
-      A: getMatrixData(MATRIX_A),
-      B: getMatrixData(MATRIX_B),
     }
 
     function getMatrixData(mId) {
@@ -132,6 +138,14 @@ $(function() {
 
       return result;
     }
+
+    function calculateCell(row, col, colsCount) {
+      var result = 0;
+      for(c = 0; c < colsCount; c++) {
+        result += matrixData.A[row][c] * matrixData.B[c][col];
+      }
+      return result;
+    }
   }
 
   function clear() {
@@ -139,6 +153,16 @@ $(function() {
     setPlaceholders(MATRIX_A);
     setPlaceholders(MATRIX_B);
     setPlaceholders(MATRIX_C);
+  }
+
+  function swap() {
+    var htmlMatrixA = $('#inner-matrix-a').html();
+    $('#inner-matrix-a').html($('#inner-matrix-b').html());
+    $('#inner-matrix-b').html(htmlMatrixA);
+
+    var titleMatrixA = $('#title-matrix-a').text();
+    $('#title-matrix-a').text($('#title-matrix-b').text());
+    $('#title-matrix-b').text(titleMatrixA);
   }
 
   function addRow(mId) {
@@ -179,6 +203,10 @@ $(function() {
     });
   }
 
+
+  /* ========================
+    Helpers methods
+  ======================== */
   function validateMatrix() {
     if (matrixIsValid(MATRIX_A) && matrixIsValid(MATRIX_B)) {
       $(SIDEBAR).removeClass('sidebar-on-error');
@@ -193,31 +221,21 @@ $(function() {
 
   function matrixIsValid(mId) {
     var result = true;
+
     $(mId + ' tr').each(function() {
       $(this).find('td input').each(function() {
         if (!valueIsValid(this.value)) result = false;
       });
     });
+
     return result;
   }
 
   function valueIsValid(value) {
-    if (value >= MIN_MATRIX_VALUE && value <= MAX_MATRIX_VALUE) {
+    if (value >= MIN_MATRIX_VALUE && value <= MAX_MATRIX_VALUE)
       return true;
-    }
+
     return false;
-  }
-
-  function swap() {
-    var htmlMatrixA = $('#inner-matrix-a').html();
-    var htmlMatrixB = $('#inner-matrix-b').html();
-    var titleMatrixA = $('#title-matrix-a').text();
-    var titleMatrixB = $('#title-matrix-b').text();
-
-    $('#inner-matrix-a').html('').html(htmlMatrixB);
-    $('#inner-matrix-b').html('').html(htmlMatrixA);
-    $('#title-matrix-a').text(titleMatrixB);
-    $('#title-matrix-b').text(titleMatrixA);
   }
 
   function setPlaceholders(mId) {
