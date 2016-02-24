@@ -62,7 +62,7 @@ body {
   right: 10px;
   left: 10px;
   width: auto;
-  height: 4px;
+  height: 5px;
   content: '';
   background-color: #fff;
 }
@@ -88,6 +88,14 @@ body {
   margin-left: 10px;
 }
 
+.matrix input::-webkit-input-placeholder  { color: #c9c9c9; }
+.matrix input::-moz-placeholder           { color: #c9c9c9; }
+.matrix input:-ms-input-placeholder       { color: #c9c9c9; }
+
+.matrix input:focus::-webkit-input-placeholder  { color: transparent; }
+.matrix input:focus::-moz-placeholder           { color: transparent; }
+.matrix input:focus:-ms-input-placeholder       { color: transparent; }
+
 #matrix-c,
 #matrix-a {
   float: left;
@@ -104,6 +112,10 @@ body {
 #matrix-c {
   margin-right: 30px;
   margin-bottom: 30px;
+}
+
+#wrapper-matrix-ac {
+  overflow: hidden;
 }
 
 #wrapper-matrix-a,
@@ -306,7 +318,6 @@ input[type='text'] {
   border: 1px solid #d9d9d9;
   border-top-color: #b2b2b2;
 }
-
 
 input[type='text']:disabled {
   color: #808080;

@@ -27,6 +27,8 @@ $(function() {
 
   $('#clear').click(function() { clear(); });
 
+  $('#swap').click(function() { swap(); });
+
   $('#add-row').click(function() {
     var mId = getSelectedMatrixId();
 
@@ -55,6 +57,8 @@ $(function() {
       getMatrixPostfix(mId) == 'a' ? deleteRow(MATRIX_C) : deleteColumn(MATRIX_A);
     }
     else alert(MIN_MATRIX_ERROR_MSG);
+
+    validateMatrix();
   });
 
   $('#delete-column').click(function() {
@@ -65,6 +69,8 @@ $(function() {
       getMatrixPostfix(mId) == 'b' ? deleteColumn(MATRIX_C) : deleteRow(MATRIX_B);
     }
     else alert(MIN_MATRIX_ERROR_MSG);
+
+    validateMatrix();
   });
 
   $('.matrix').on('focusin', 'input', function() {
@@ -77,19 +83,11 @@ $(function() {
   });
 
   $('.matrix').on('change', 'input', function() {
+    $(this).attr('value', $(this).val());
     $(SIDEBAR).removeClass('sidebar-on-error');
     $(ERRORS).html('').hide();
     $('#multiply').prop( 'disabled', true);
-
-    if (matrixIsValid(MATRIX_A) && matrixIsValid(MATRIX_B)) {
-      $(SIDEBAR).removeClass('sidebar-on-error');
-      $(ERRORS).html('').hide();
-      $('#multiply').prop( 'disabled', false);
-    }
-    else {
-      $(SIDEBAR).addClass('sidebar-on-error');
-      $(ERRORS).text(INVALID_VALUE_MSG).show();
-    }
+    validateMatrix();
   });
 
   function multiply() {
@@ -180,6 +178,18 @@ $(function() {
     });
   }
 
+  function validateMatrix() {
+    if (matrixIsValid(MATRIX_A) && matrixIsValid(MATRIX_B)) {
+      $(SIDEBAR).removeClass('sidebar-on-error');
+      $(ERRORS).html('').hide();
+      $('#multiply').prop( 'disabled', false);
+    }
+    else {
+      $(SIDEBAR).addClass('sidebar-on-error');
+      $(ERRORS).text(INVALID_VALUE_MSG).show();
+    }
+  }
+
   function matrixIsValid(mId) {
     var result = true;
     $(mId + ' tr').each(function() {
@@ -198,7 +208,17 @@ $(function() {
   }
 
   function swap() {
-    //TODO
+    var htmlMatrixA = $('#wrapper-matrix-a').html();
+    var htmlMatrixB = $('#wrapper-matrix-b').html();
+
+    var titleMatrixA = $('#title-matrix-a').text();
+    var titleMatrixB = $('#title-matrix-b').text();
+
+    $('#wrapper-matrix-a').html(htmlMatrixB);
+    $('#wrapper-matrix-b').html(htmlMatrixA);
+
+    $('#title-matrix-a').text(titleMatrixB);
+    $('#title-matrix-b').text(titleMatrixA);
   }
 
   function setPlaceholders(mId) {

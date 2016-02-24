@@ -26,7 +26,7 @@
       </div>
 
       <div class="sidebar-line">
-        <button class="btn btn-form" disabled="">
+        <button class="btn btn-form" id="swap">
           <i class="icon icon-swap"></i>
             Поменять матрицы местами
         </button>
@@ -72,138 +72,79 @@
   </div>
 
   <div id="content">
-    <table class="matrix" id="matrix-c">
-      <tr>
-        <td><input type="text" placeholder="c1,1" disabled></td>
-        <td><input type="text" placeholder="c1,2" disabled></td>
-        <td><input type="text" placeholder="c1,3" disabled></td>
-      </tr>
-      <tr>
-        <td><input type="text" placeholder="c2,1" disabled></td>
-        <td><input type="text" placeholder="c2,2" disabled></td>
-        <td><input type="text" placeholder="c2,3" disabled></td>
-      </tr>
-      <tr>
-        <td><input type="text" placeholder="c3,1" disabled></td>
-        <td><input type="text" placeholder="c3,2" disabled></td>
-        <td><input type="text" placeholder="c3,3" disabled></td>
-      </tr>
-      <tr>
-        <td><input type="text" placeholder="c3,1" disabled></td>
-        <td><input type="text" placeholder="c3,2" disabled></td>
-        <td><input type="text" placeholder="c3,3" disabled></td>
-      </tr>
-    </table>
+    <div id="wrapper-matrix-ac">
+      <div id="wrapper-matrix-c">
+        <table class="matrix" id="matrix-c">
+          <tr>
+            <td><input type="text" placeholder="c1,1" disabled></td>
+            <td><input type="text" placeholder="c1,2" disabled></td>
+            <td><input type="text" placeholder="c1,3" disabled></td>
+          </tr>
+          <tr>
+            <td><input type="text" placeholder="c2,1" disabled></td>
+            <td><input type="text" placeholder="c2,2" disabled></td>
+            <td><input type="text" placeholder="c2,3" disabled></td>
+          </tr>
+          <tr>
+            <td><input type="text" placeholder="c3,1" disabled></td>
+            <td><input type="text" placeholder="c3,2" disabled></td>
+            <td><input type="text" placeholder="c3,3" disabled></td>
+          </tr>
+          <tr>
+            <td><input type="text" placeholder="c4,1" disabled></td>
+            <td><input type="text" placeholder="c4,2" disabled></td>
+            <td><input type="text" placeholder="c4,3" disabled></td>
+          </tr>
+        </table>
+      </div>
 
-    <div id="wrapper-matrix-a">
-      <table class="matrix" id="matrix-a">
-        <tr>
-          <td><input type="text" placeholder="b1,1" value="1"></td>
-          <td><input type="text" placeholder="b1,2" value="1"></td>
-          <td><input type="text" placeholder="b1,3" value="1"></td>
-          <td><input type="text" placeholder="b1,3" value="1"></td>
-        </tr>
-        <tr>
-          <td><input type="text" placeholder="b2,1" value="2"></td>
-          <td><input type="text" placeholder="b2,2" value="2"></td>
-          <td><input type="text" placeholder="b2,3" value="2"></td>
-          <td><input type="text" placeholder="b2,3" value="2"></td>
-        </tr>
-        <tr>
-          <td><input type="text" placeholder="b3,1" value="3"></td>
-          <td><input type="text" placeholder="b3,2" value="3"></td>
-          <td><input type="text" placeholder="b3,3" value="3"></td>
-          <td><input type="text" placeholder="b3,3" value="3"></td>
-        </tr>
-        <tr>
-          <td><input type="text" placeholder="b3,1" value="4"></td>
-          <td><input type="text" placeholder="b3,2" value="4"></td>
-          <td><input type="text" placeholder="b3,3" value="4"></td>
-          <td><input type="text" placeholder="b3,3" value="4"></td>
-        </tr>
-      </table>
-      <span id="title-matrix-a">А</span>
+      <div id="wrapper-matrix-a">
+        <table class="matrix" id="matrix-a">
+          <tr>
+            <td><input type="text" placeholder="a1,1" value="1"></td>
+            <td><input type="text" placeholder="a1,2" value="1"></td>
+            <td><input type="text" placeholder="a1,3" value="1"></td>
+          </tr>
+          <tr>
+            <td><input type="text" placeholder="a2,1" value="2"></td>
+            <td><input type="text" placeholder="a2,2" value="2"></td>
+            <td><input type="text" placeholder="a2,3" value="2"></td>
+          </tr>
+          <tr>
+            <td><input type="text" placeholder="a3,1" value="3"></td>
+            <td><input type="text" placeholder="a3,2" value="3"></td>
+            <td><input type="text" placeholder="a3,3" value="3"></td>
+          </tr>
+          <tr>
+            <td><input type="text" placeholder="a4,1" value="4"></td>
+            <td><input type="text" placeholder="a4,2" value="4"></td>
+            <td><input type="text" placeholder="a4,3" value="4"></td>
+          </tr>
+        </table>
+        <span class="title-matrix" id="title-matrix-a">А</span>
+      </div>
     </div>
 
     <div id="wrapper-matrix-b">
       <table class="matrix" id="matrix-b">
         <tr>
-          <td><input type="text" placeholder="a1,1" value="1"></td>
-          <td><input type="text" placeholder="a1,2" value="1"></td>
-          <td><input type="text" placeholder="a1,3" value="1"></td>
+          <td><input type="text" placeholder="b1,1" value="1"></td>
+          <td><input type="text" placeholder="b1,2" value="1"></td>
+          <td><input type="text" placeholder="b1,3" value="1"></td>
         </tr>
         <tr>
-          <td><input type="text" placeholder="a2,1" value="2"></td>
-          <td><input type="text" placeholder="a2,2" value="2"></td>
+          <td><input type="text" placeholder="b2,1" value="2"></td>
+          <td><input type="text" placeholder="b2,2" value="2"></td>
           <td><input type="text" placeholder="a2,3" value="2"></td>
         </tr>
         <tr>
-          <td><input type="text" placeholder="a1,1" value="3"></td>
-          <td><input type="text" placeholder="a1,2" value="3"></td>
-          <td><input type="text" placeholder="a1,3" value="3"></td>
-        </tr>
-        <tr>
-          <td><input type="text" placeholder="a1,1" value="4"></td>
-          <td><input type="text" placeholder="a1,2" value="4"></td>
-          <td><input type="text" placeholder="a1,3" value="4"></td>
+          <td><input type="text" placeholder="b1,1" value="3"></td>
+          <td><input type="text" placeholder="b1,2" value="3"></td>
+          <td><input type="text" placeholder="b1,3" value="3"></td>
         </tr>
       </table>
-      <span id="title-matrix-b">B</span>
+      <span class="title-matrix" id="title-matrix-b">B</span>
     </div>
-    
-    <!-- <table class="matrix" id="matrix-c">
-      <tr>
-        <td><input type="text" placeholder="c1,1" disabled></td>
-        <td><input type="text" placeholder="c1,2" disabled></td>
-        <td><input type="text" placeholder="c1,3" disabled></td>
-      </tr>
-      <tr>
-        <td><input type="text" placeholder="c2,1" disabled></td>
-        <td><input type="text" placeholder="c2,2" disabled></td>
-        <td><input type="text" placeholder="c2,3" disabled></td>
-      </tr>
-      <tr>
-        <td><input type="text" placeholder="c3,1" disabled></td>
-        <td><input type="text" placeholder="c3,2" disabled></td>
-        <td><input type="text" placeholder="c3,3" disabled></td>
-      </tr>
-    </table>
-
-    <table class="matrix" id="matrix-a">
-      <tr>
-        <td><input type="text" placeholder="b1,1"></td>
-        <td><input type="text" placeholder="b1,2"></td>
-        <td><input type="text" placeholder="b1,3"></td>
-      </tr>
-      <tr>
-        <td><input type="text" placeholder="b2,1"></td>
-        <td><input type="text" placeholder="b2,2"></td>
-        <td><input type="text" placeholder="b2,3"></td>
-      </tr>
-      <tr>
-        <td><input type="text" placeholder="b3,1"></td>
-        <td><input type="text" placeholder="b3,2"></td>
-        <td><input type="text" placeholder="b3,3"></td>
-      </tr>
-    </table>
-
-    <table class="matrix" id="matrix-b">
-      <tr>
-        <td><input type="text" placeholder="a1,1"></td>
-        <td><input type="text" placeholder="a1,2"></td>
-        <td><input type="text" placeholder="a1,3"></td>
-      </tr>
-      <tr>
-        <td><input type="text" placeholder="a2,1"></td>
-        <td><input type="text" placeholder="a2,2"></td>
-        <td><input type="text" placeholder="a2,3"></td>
-      </tr>
-      <tr>
-        <td><input type="text" placeholder="a1,1"></td>
-        <td><input type="text" placeholder="a1,2"></td>
-        <td><input type="text" placeholder="a1,3"></td>
-      </tr>
-    </table> -->
   </div>
   
   <script type="text/javascript" src="libs/jquery-1.12.0.min.js"></script>
